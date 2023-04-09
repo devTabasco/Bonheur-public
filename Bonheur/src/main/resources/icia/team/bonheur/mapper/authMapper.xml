@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- namespace가 java의 import 역할 -->
+  <mapper namespace="icia.team.bonheur.mapper.MapperInter">
+  	<insert id="insMember" parameterType="icia.team.bonheur.beans.MemberBean" useGeneratedKeys="true" keyProperty="memberCode" keyColumn="ME_CODE">
+  		INSERT INTO ME(ME_CODE, ME_EMAIL, ME_NAME, ME_PHONE, ME_PASSWORD, ME_SUBEMAIL, ME_OAUTHKEY)
+  		VALUES(SUBSTR(#{memberEmail}, 1, 4)||MEMBER_SEQ.NEXTVAL, #{memberEmail}, #{memberName}, #{memberPhone}, #{memberPassword}, #{memberSubEmail}, null)
+  	</insert>
+  	<insert id="insOauthMember" parameterType="icia.team.bonheur.beans.MemberBean" useGeneratedKeys="true" keyProperty="memberCode" keyColumn="ME_CODE">
+  		INSERT INTO ME(ME_CODE, ME_EMAIL, ME_NAME, ME_PHONE, ME_PASSWORD, ME_SUBEMAIL, ME_OAUTHKEY)
+  		VALUES(SUBSTR(#{memberEmail}, 1, 4)||MEMBER_SEQ.NEXTVAL, #{memberEmail}, #{memberName}, #{memberPhone}, null, #{memberSubEmail}, #{memberOauthKey})
+  	</insert>
+  	<select id="emailDupCheck" parameterType="icia.team.bonheur.beans.MemberBean" resultType="int">
+  		SELECT COUNT(*) FROM MEMBER WHERE ME_EMAIL = #{memberEmail}
+  	</select>
+  	<select id="checkMemberPhone" parameterType="icia.team.bonheur.beans.MemberBean" resultType="int">
+  		SELECT COUNT(*) FROM MEMBER WHERE ME_PHONE = #{memberPhone}
+  	</select>
+  	<delete id="withdraw" parameterType="icia.team.bonheur.beans.MemberBean">
+		DELETE FROM MEMBER WHERE ME_CODE = #{memberCode}
+	</delete>
+  		<!-- Member Info -->
+	<select id="getMemberInfo"  parameterType="icia.team.bonheur.beans.MemberBean" resultType="icia.team.bonheur.beans.MemberBean" >
+		SELECT ME_CODE AS MEMBERCODE, ME_NAME AS MEMBERNAME, ME_EMAIL AS MEMBEREMAIL, ME_PHONE AS MEMBERPHONE, ME_SUBEMAIL AS MEMBERSUBEMAIL FROM ME WHERE ME_EMAIL = #{memberEmail}
+	</select>
+	<select id="getMemberInfoByNaver"  parameterType="icia.team.bonheur.beans.NaverResponseBean" resultType="icia.team.bonheur.beans.MemberBean" >
+		SELECT ME_CODE AS MEMBERCODE, ME_NAME AS MEMBERNAME, ME_EMAIL AS MEMBEREMAIL, ME_PHONE AS MEMBERPHONE, ME_SUBEMAIL AS MEMBERSUBEMAIL FROM ME WHERE ME_OAUTHKEY = #{id}
+	</select>
+	
+	<select id="naverMemberCheck"  parameterType="icia.team.bonheur.beans.NaverResponseBean" resultType="int" >
+		SELECT Count(*) FROM ME WHERE ME_OAUTHKEY = #{id}
+	</select>
+  </mapper>

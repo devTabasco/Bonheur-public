@@ -1,0 +1,93 @@
+.guide-box{
+    width: 100%;
+    padding: 5% 3%;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+.sub-title-box{
+    padding: 0 3%;
+    box-sizing: border-box;
+}
+
+.sub-contents-box{
+    padding: 0 3%;
+    box-sizing: border-box;
+}
+
+#title{
+    color: #6C757D;
+    font-size: 24px;
+}
+
+#sub-title{
+    color: #6C757D;
+    font-size: 20px;
+}
+
+.templateBox{
+    width: 50%;
+    height: 35%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    background-color: #eaeaee;
+    text-align: center;
+    border-radius: 10px;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.wishBox{
+    width: 22%;
+    height: 40%;
+    padding: 2%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    background-color: #eaeaee;
+    text-align: center;
+    border-radius: 10px;
+    display: flex;             
+    flex-direction: column;        
+    justify-content: center;  
+}
+
+.margin10{
+    margin-right: 10px;
+}
+
+.margin50{
+    margin-right: 50px;
+}
+
+.marginTop0{
+    margin-top: 0;
+}
+
+.frame{
+    width: 100%;
+    padding: 5% 3%;
+    border: 1px solid #333;
+}
+
+.fontT{
+    font-size: 24px;
+    color: #6C757D;
+}
+.fontST{
+    font-size: 20px;
+    color: #6C757D;
+}
+
+.hr-style{
+    background-color: #B0B6BA;
+    height: 1px;
+}
+
+.subtitleBox{
+    width: 25%;
+}
+
+.inputBox{
+    width: 75%;
+}
+

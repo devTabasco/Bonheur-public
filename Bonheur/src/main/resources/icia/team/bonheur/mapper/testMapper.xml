@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- namespace가 java의 import 역할 -->
+  <mapper namespace="icia.team.bonheur.mapper.MapperInter">
+  	<select id="isEmail" parameterType="icia.team.bonheur.beans.MemberBean" resultType="int">
+  		SELECT COUNT(*) FROM MEMBER WHERE ME_EMAIL = #{memberEmail}
+  	</select>
+  	<select id="emailOauthDupCheck" parameterType="icia.team.bonheur.beans.MemberBean" resultType="int">
+  		SELECT COUNT(*) FROM MEMBER WHERE ME_EMAIL = #{memberEmail} OR ME_OAUTHKEY = #{memberOauthKey}
+  	</select>
+  	<select id="getMemberPassword" parameterType="icia.team.bonheur.beans.MemberBean" resultType="String">
+  		SELECT ME_PASSWORD AS MEMBERPASSWORD FROM MEMBER WHERE ME_EMAIL = #{memberEmail}
+  	</select>
+  </mapper>

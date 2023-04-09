@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- namespace가 java의 import 역할 -->
+  <mapper namespace="icia.team.bonheur.mapper.MapperInter">
+  		<!-- Member Info -->
+	<select id="getTemplateInfo" resultType="icia.team.bonheur.beans.TemplateDetailBean" >
+	<![CDATA[
+		SELECT TE_CODE AS templateDetailCode, TE_NAME AS templateDetailName, DI_CONTENTS AS templateDetailContents
+		FROM TE, DI
+		WHERE TE.TE_CODE = DI.DI_TECODE AND DI.DI_CONTENTS = 'best' AND ROWNUM <= 5
+		UNION ALL
+		SELECT TE_CODE AS templateDetailCode, TE_NAME AS templateDetailName, DI_CONTENTS AS templateDetailContents
+		FROM TE, DI
+		WHERE TE.TE_CODE = DI.DI_TECODE AND DI.DI_CONTENTS = 'new' AND ROWNUM <= 5
+	]]>
+	</select>
+	
+	<select id="getOrderInfo" parameterType="String" resultType="icia.team.bonheur.beans.ItemBean" >
+		SELECT IT_CODE AS itemCode, IT_TECODE AS templateCode, TE_NAME AS templateName, IT_DATE AS builtDate
+		FROM IT, TE
+		WHERE IT.IT_TECODE = TE.TE_CODE AND IT.IT_CODE = #{itemCode}
+	</select>
+	
+	<select id="getWedTemplateList" resultType="icia.team.bonheur.beans.TemplateDetailBean" >
+		SELECT TE_CODE AS templateDetailCode, TE_NAME AS templateDetailName, DI_CONTENTS AS templateDetailContents
+		FROM TE, DI
+		WHERE TE.TE_CODE = DI.DI_TECODE AND TE.TE_CODE like 'WED%' AND DI.DI_CODE like 'TG%'
+	</select>
+	
+	<select id="getThxTemplateList" resultType="icia.team.bonheur.beans.TemplateDetailBean" >
+		SELECT TE_CODE AS templateDetailCode, TE_NAME AS templateDetailName, DI_CONTENTS AS templateDetailContents
+		FROM TE, DI
+		WHERE TE.TE_CODE = DI.DI_TECODE AND TE.TE_CODE like 'THX%' AND DI.DI_CODE like 'TG%'
+	</select>
+	
+	<select id="getBirTemplateList" resultType="icia.team.bonheur.beans.TemplateDetailBean" >
+		SELECT TE_CODE AS templateDetailCode, TE_NAME AS templateDetailName, DI_CONTENTS AS templateDetailContents
+		FROM TE, DI
+		WHERE TE.TE_CODE = DI.DI_TECODE AND TE.TE_CODE like 'BIR%' AND DI.DI_CODE like 'TG%'
+	</select>
+	
+	<select id="getEtcTemplateList" resultType="icia.team.bonheur.beans.TemplateDetailBean" >
+		SELECT TE_CODE AS templateDetailCode, TE_NAME AS templateDetailName, DI_CONTENTS AS templateDetailContents
+		FROM TE, DI
+		WHERE TE.TE_CODE = DI.DI_TECODE AND TE.TE_CODE like 'ETC%' AND DI.DI_CODE like 'TG%'
+	</select>
+	
+	<select id="getTemplateDetailInfo" parameterType="String" resultType="icia.team.bonheur.beans.TemplateDetailBean" >
+		SELECT TE_CODE AS templateDetailCode, TE_NAME AS templateDetailName, DI_CONTENTS AS templateDetailContents, DI_CODE AS templateTagCode
+		FROM TE, DI
+		WHERE TE.TE_CODE = #{templateDetailCode} AND TE.TE_CODE = DI.DI_TECODE
+	</select>
+
+	<insert id="insItemInfo" parameterType="icia.team.bonheur.beans.MemberBean" useGeneratedKeys="true" keyProperty="itemList[0].itemCode" keyColumn="IT_CODE">
+  		INSERT INTO IT(IT_CODE, IT_MECODE, IT_TECODE, IT_URL, IT_TITLE, IT_GREETINGS, IT_THUMBNAIL, IT_MAINIMAGE, IT_STATUS, IT_EXPIREDAT, IT_DATE)
+  		VALUES('B'||MAIN_OPTION_SEQ.NEXTVAL, #{memberCode}, #{itemList[0].templateCode}, #{itemList[0].invitationURL}, #{itemList[0].invitationTitle}, #{itemList[0].greetingMessage}, DEFAULT, DEFAULT, #{itemList[0].itemStatus}, DEFAULT, DEFAULT)
+  	</insert>
+
+    <update id="updItemInfo" parameterType="icia.team.bonheur.beans.MemberBean">
+	  	UPDATE ITEM SET IT_THUMBNAIL = #{itemList[0].thumbNailImage}, IT_MAINIMAGE = #{itemList[0].mainImage}
+	  	WHERE IT_CODE = #{itemList[0].itemCode}
+  	</update>
+  	
+    <update id="updItemStatus" parameterType="icia.team.bonheur.beans.ItemBean">
+	  	UPDATE ITEM SET IT_Status = #{itemStatus}
+	  	WHERE IT_CODE = #{itemCode}
+  	</update>
+  	
+	<insert id="insSubOption" parameterType="icia.team.bonheur.beans.SubOptionBean">
+  		INSERT INTO OS(OS_CODE, OS_ITCODE, OS_OMCODE, OS_TYPE, OS_VALUE)
+  		VALUES('DP'|| SUB_OPTION_SEQ.NEXTVAL, #{itemList[0].itemCode}, #{itemList[0].subOptionList[0].mainOptionCode}, #{itemList[0].subOptionList[0].subOptionType}, #{itemList[0].subOptionList[0].subOptionValue})
+  	</insert>
+  	
+  	<select id="selectWishList" parameterType="icia.team.bonheur.beans.MemberBean" resultType="int">
+  		SELECT COUNT(*)
+  		FROM WI
+  		WHERE WI_MECODE = #{memberCode} AND WI_TECODE = #{wishList[0].templateCode}
+  	</select>
+  	
+  	<select id="selectWishByMyPage" parameterType="icia.team.bonheur.beans.MemberBean" resultType="icia.team.bonheur.beans.WishListBean">
+  		SELECT WI_CODE AS wishCode, WI_TECODE AS templateCode
+		FROM WI, TE
+		WHERE WI.WI_TECODE = TE.TE_CODE AND WI_MECODE = #{memberCode}
+  	</select>
+
+  	<select id="getTemplateName" parameterType="icia.team.bonheur.beans.WishListBean" resultType="icia.team.bonheur.beans.ItemBean">
+  		SELECT TE_NAME AS templateName
+		FROM WI, TE
+		WHERE WI.WI_TECODE = TE.TE_CODE AND WI_TECODE = #{templateCode}
+  	</select>
+  	
+  	<insert id="insWishList" parameterType="icia.team.bonheur.beans.MemberBean">
+  		INSERT INTO WI(WI_CODE, WI_MECODE, WI_TECODE)
+  		VALUES('W'||WISHLIST_SEQ.NEXTVAL, #{memberCode}, #{wishList[0].templateCode})
+  	</insert>
+  	
+  	<delete id="deleteWishList" parameterType="icia.team.bonheur.beans.MemberBean">
+		DELETE FROM WI WHERE WI_MECODE = #{memberCode} AND WI_TECODE = #{wishList[0].templateCode}
+	</delete>
+
+  	<delete id="deleteItem" parameterType="icia.team.bonheur.beans.MemberBean">
+		DELETE FROM ITEM WHERE IT_CODE = #{itemList[0].itemCode}
+	</delete>
+	
+	<delete id="deleteGuestBook" parameterType="icia.team.bonheur.beans.MemberBean">
+		DELETE FROM GB WHERE GB_ITCODE = #{itemList[0].itemCode}
+	</delete>
+	
+	<delete id="deleteOptionSub" parameterType="icia.team.bonheur.beans.MemberBean">
+		DELETE FROM OS WHERE OS_ITCODE = #{itemList[0].itemCode}
+	</delete>
+	
+	
+
+	<select id="getDoingItemInfo" parameterType="icia.team.bonheur.beans.MemberBean" resultType="icia.team.bonheur.beans.ItemBean">
+  		SELECT TE_CODE AS templateCode, TE_NAME AS templateName, IT_CODE AS itemCode, IT_URL as invitationURL, IT_Status as itemStatus, IT_Expiredat as expiredDate, IT_Date as builtDate
+		FROM TE, IT
+		WHERE IT.IT_TECODE = TE.TE_CODE AND IT.IT_MECODE = #{memberCode}
+  	</select>
+  </mapper>

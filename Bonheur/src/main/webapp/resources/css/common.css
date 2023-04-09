@@ -1,0 +1,58 @@
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+	font-family: 'Roboto', sans-serif;
+  }
+  
+  .wrapper {
+    display: flex;
+    min-height: 100vh;
+    background-color: #fff;
+  }
+  
+  .frame{
+    margin: auto;
+    padding: 30px;
+    text-align: center;
+  }
+
+.box{
+    position: relative;
+    text-align: center;
+    width: 500px;
+    height: 650px;
+    border: solid 1px #58AAFF;
+    border-radius: 30px;
+}
+
+.snslogBox{
+  display: inline-block;
+  text-align: center;
+  width: 300px;
+  height: 110px;
+  margin-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: solid 1px #58AAFF;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+.box-big{
+  position: relative;
+  text-align: center;
+  width: 550px;
+  border: solid 1px #58AAFF;
+  border-radius: 30px;
+  padding: 0 0 5% 0;
+}
+
+.input-box-cm{
+  width: 300px;
+  height: 40px;
+  border: solid 1px #B0B6BA;
+  border-radius: 10px;
+  outline: none;
+}

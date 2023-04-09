@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven />
+	
+	<!-- Multipart Resolver -->
+	<beans:bean id="multi" class="org.springframework.web.multipart.support.StandardServletMultipartResolver"></beans:bean>
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<resources mapping="/resources/**" location="/resources/" />
+	<resources mapping="/View/resources/**" location="/resources/" />
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+	
+	<!-- mvc:Interceptor -->
+	<interceptors>
+		<interceptor>
+			<mapping path="/**" />
+			<!-- 예외 항목 등록 -->
+			<exclude-mapping path="/ThxCard" />
+			<exclude-mapping path="/Wedding" />
+			<exclude-mapping path="/FirstBirth" />
+			<exclude-mapping path="/ExtraCard" />
+			<exclude-mapping path="/IssuanceJWT" />
+			<exclude-mapping path="/SignUp" />
+			<exclude-mapping path="/Login" />
+			<exclude-mapping path="/Logout" />
+			<exclude-mapping path="/View/MyInfoEdit" />
+			<exclude-mapping path="/Api/PassCheck" />
+			<exclude-mapping path="/getTemplateList" />
+			<exclude-mapping path="/Index" />
+			<exclude-mapping path="/MyPage" />
+			<exclude-mapping path="/template" />
+			<exclude-mapping path="/rule" />
+			<exclude-mapping path="/infoPolicy" />
+			<exclude-mapping path="/introduce" />
+			<exclude-mapping path="/Api/EmailAuth" />
+			<exclude-mapping path="/Api/EmailAuthCheck" />
+			<exclude-mapping path="/View/Registration" />
+			<exclude-mapping path="/View/Access" />
+			<exclude-mapping path="/View/Detail" />
+			<exclude-mapping path="/NaverCallBack" />
+			<exclude-mapping path="/naverMemberJoin" />
+			<exclude-mapping path="/kakaoOauthCallBack" />
+			<exclude-mapping path="/oauth_kakao" />
+			<exclude-mapping path="/getKakaoAuthUrl" />
+			<exclude-mapping path="/getNaverInfo" />
+			<exclude-mapping path="/m/**" />
+			<exclude-mapping path="/" />
+			<exclude-mapping path="/m/**" />
+			<exclude-mapping path="/getTemplateInfo" />
+			<exclude-mapping path="/template/**" />
+			<exclude-mapping path="/resources/**" />
+			<exclude-mapping path="/View/resources/**" />
+			<beans:bean id="Interceptor" class="icia.team.bonheur.utils.JwtIntercepter" />
+		</interceptor>
+	</interceptors>
+	
+	<!-- mvc:cors -->
+	<cors>
+  	<mapping path ="/**" 
+  					 allowed-origins="*" 
+  					 allowed-methods="*" 
+  					 allowed-headers="*" 
+  					 exposed-headers="BonheurJWT" />
+  </cors>
+	<context:component-scan base-package="icia.team.bonheur" />
+	
+	
+	
+</beans:beans>

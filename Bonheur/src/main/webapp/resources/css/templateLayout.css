@@ -1,0 +1,19 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    padding: 0;
+    margin: 0;
+}
+
+/* 유동형 레이아웃 스타일 */
+.container {
+    width: 100%;
+    max-width: 540px;
+    margin: 0 auto;
+    text-align: center;
+}
+.box {
+    background-color: aqua;
+    width: 100%;
+}

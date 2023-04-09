@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- namespace가 java의 import 역할 -->
+  <mapper namespace="icia.team.bonheur.mapper.MapperInter">
+  	<update id="updMyInfo" parameterType="icia.team.bonheur.beans.MemberBean">
+  	UPDATE MEMBER SET ME_PHONE = #{memberPhone}, ME_PASSWORD = #{memberPassword}, ME_SUBEMAIL = #{memberSubEmail} 
+  	WHERE ME_EMAIL = #{memberEmail}
+  	</update>
+  </mapper>

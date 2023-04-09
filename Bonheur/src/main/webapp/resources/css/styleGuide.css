@@ -1,0 +1,345 @@
+/*
+font-family: 'Noto Sans KR', sans-serif;
+font-family: 'Roboto', sans-serif;]
+*/
+/*
+body{
+    padding-top: 20px;
+    padding-left: 30px;
+} */
+
+p{
+margin:0px;
+}
+
+.logo > a {
+    font-size: 30px;
+    font-weight:600;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    color: #58AAFF;
+}
+
+.eng{
+    font-family: 'Roboto', sans-serif;
+}
+
+.kor{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.Bold{
+    font-weight: bold;
+}
+
+.Regular{
+    font-weight:400;
+}
+
+.b{
+    font-size: 40px;
+    margin-right: 20px;
+}
+
+.colorBox{
+    display: inline-block;
+    margin-right: 20px;
+    width: 100px;
+    height: 100px;
+}
+
+.color1{
+    background-color: #6C757D;
+}
+
+.color2{
+    background-color: #B0B6BA;
+}
+
+.color3{
+    background-color: #58AAFF;
+}
+
+.color4{
+    background-color: #789DBF;
+}
+
+.color5{
+    background-color: #0069D9;
+}
+
+.btn{
+    border-radius: 0.8rem;
+    border-color: #58AAFF;
+}
+
+.btn:hover{
+    border-color: #58AAFF;
+    background-color: #58AAFF;
+}
+
+.btn-primary{
+    background-color: #58AAFF
+}
+
+.btn-outline-primary{
+    color: #58AAFF
+}
+
+.btn-produce-sm{
+    width: 200px;
+    height: 40px;
+    font-size: 15px;
+}
+
+.btn-produce-md{
+    width: 300px;
+    height: 50px;
+    font-size: 15px;
+}
+
+.btn-next{
+    width : 800px;
+    height : 80px;
+    border: none;
+    font-size: 28px;
+}
+
+.btn-move{
+    width : 280px;
+    height : 70px;
+    font-size: 20px;
+}
+
+.btn-xs{
+    height : 30px;
+    font-size: 12px;
+}
+
+.input-box{
+    border: 1px #B0B6BA solid;
+    border-radius: 0.2rem;
+    outline: none;
+}
+
+.input-box-est{
+    width: 50px;
+    height: 35px;
+}
+
+.input-box-st{
+width: 130px;
+height: 35px;
+}
+
+.input-box-sm{
+    width : 150px;
+    height : 35px;
+}
+
+.input-box-md{
+    width : 200px;
+    height : 35px;
+}
+
+.input-box-lg{
+    width : 500px;
+    height : 35px;
+}
+
+.input-box-b{
+    width : 500px;
+    height: 150px;
+}
+
+.img-box-1{
+    width: 390px;
+    height: 220px;
+background-color: #B0B6BA;
+}
+
+.img-box-2{
+    width: 230px;
+    height: 390px;
+background-color: #B0B6BA;
+}
+
+.img-box-3{
+    width: 200px;
+    height: 260px;
+    background-color: #B0B6BA;
+}
+
+.qr-box > img{
+    width: 100px;
+    height: 100px;
+    border: 1px solid #B0B6BA;
+}
+
+.form-check{
+    display: inline-block;
+}
+.form-check-input:checked{
+background-color: #58AAFF;
+border-color: #58AAFF;
+}
+.form-check-label{
+color:#6C757D;
+}
+
+.form-select{
+    width: 130px;
+}
+
+/* 23.02.04 창용 수정 시작 */
+
+.carousel{
+    width: 100%;
+    height: 80vh;
+}
+
+.carousel-item > img{
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+}
+
+/* 23.02.04 창용 수정 끝 */
+
+.message-box{
+	position: fixed;
+  	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
+    text-align: center;
+    width: 600px;
+    border: solid 1px #58AAFF;
+    border-radius: 30px;
+    padding: 2vw 0;
+    background-color:white;
+}
+
+.message-box-btn{
+    width: 100px;
+    height: 50px;
+    margin-top: 30px;
+    border: solid 1px #58AAFF;
+    border-radius: 15px;
+    background-color: #ffffff;
+    color: #58AAFF;
+    font-weight: bold;
+}
+
+.URLplaceholder{
+    width: 400px;
+    height: 50px;
+    margin-top: 30px;
+    margin-right: 20px;
+    border: solid 1px #58AAFF;
+    border-radius: 15px;
+}
+
+/* 23.02.04 지수 수정 부분*/
+.phone{
+    display:flex;
+    justify-content: center;
+    width: 280px;
+    height: 450px;
+    padding: 0px 55px 500px 55px;
+    border-radius: 50px;
+    border: solid 10px #292929;
+    background-color: #fff;
+  }
+
+.M-line{
+    width: 180px;
+    height: 25px;
+    background-color: #292929;
+    border-radius: 0px 0px 25px 25px;
+}
+
+.notification-box{
+    width: 400px;
+    height: 100%;
+    border: 1px solid #B0B6BA;
+    border-radius: 18px;
+    border-style: hidden;
+    box-shadow: 0 0 0 1px #B0B6BA;
+}
+.container{
+    display: flex;
+    margin-top: 10px;
+}
+.notification-circle{
+    width: 10px;
+    height: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    background-color: #58AAFF;
+    border-radius: 100px;
+}
+.notification-single{
+    width: 400px;
+    height: 75px;
+    border-top: 1px solid #B0B6BA;
+}
+
+.modal-box-sm{
+    width: 100px;
+    padding: 10px;
+    border: 1px solid #B0B6BA;
+    border-radius: 0px 0px 20px 20px;
+    text-align: center;
+    background-Color: white;
+    z-index: 2;
+    position: absolute;
+    left: 73.6%;
+}
+
+.modal-content{
+    line-height: 200%;
+    cursor: pointer;
+}
+
+  .warning{
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #0069D9;
+  }
+
+  .greetSample{
+    width: 100%;
+    border: 1px solid #B0B6BA;
+    padding: 3%;
+  }
+
+  #preview{
+    width: 150px;
+    height: 150px;
+    border: 1px solid #B0B6BA;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+outline: none;
+  }
+
+  .input-file-button{
+    width: 150px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid #B0B6BA;
+    border-top: none;
+    color: #58AAFF;
+    cursor: pointer;
+}
+
+#dropzone-guide{width: 500px;}
+
+.btn-danger{
+    border: 0px;
+}
+
+.btn-danger:hover{
+    background-color: #4f0111;
+}

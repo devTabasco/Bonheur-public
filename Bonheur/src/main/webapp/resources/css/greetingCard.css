@@ -1,0 +1,335 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Gamja+Flower:400');
+	body {
+	 	margin:0;
+	 	-ms-overflow-style: none; /* 인터넷 익스플로러 */
+  		scrollbar-width: none; /* 파이어폭스 */
+	}
+	body::-webkit-scrollbar {
+  		display: none;
+	}
+	.main{
+	    height: 110vh;
+	    background-color: rgb(118, 117, 119);
+	    background-repeat: no-repeat;
+	    background-position: center center;
+	    background-size: cover;
+	}
+    .greetMsg{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50vh;
+        background-color: #FFFBF5;
+        line-height: 10vw;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 4.5vw;    
+    }
+    .contact{
+        height: 15vh;
+        background-color: #FFFBF5;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .contact > div > p{
+        font-family: 'Noto Sans KR', sans-serif;
+        display: inline-block;
+        font-size: 5.5vw;
+        line-height: 25vw;
+        margin: 0 5%;
+    }
+    .contact > div > a > i{
+        font-size: 8vw;
+        margin: 0 3%;
+        color: black;
+    }
+    .contact2{
+        height: 50vh;
+        background-color: #FFFBF5;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .guardian{
+        width: 50vw;
+    }
+    .guardian > p{
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 4.5vw;
+        padding: 0 5%;
+    }
+    .guardian > a > i{
+        font-size: 5.5vw;
+        line-height: 10vw;
+        margin: 0 8%;
+        color: black;
+    }
+    .gallery{
+        background-color: #FFFBF5;
+        float: auto;
+        padding: 50px 0;
+    }
+    .gallery > h1{
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 5.5vw;
+        padding: 0 5%;
+    }
+    .gallery-image{
+        display: inline-block;
+        margin: 0 5px;
+        width: 29vw;
+        height: 29vw;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        background-image: url('https://bonheur-storage.s3.ap-northeast-2.amazonaws.com/resources/images/react.png');
+    }
+    .movie{
+        background-color: #FFFBF5;
+        padding: 50px 0;
+    }
+    .movie > h1{
+        margin: 0;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 5.5vw;
+        margin-bottom: 5%;
+    }
+    .location{
+        text-align: center;
+        background-color: #FFFBF5;
+        padding: 50px 0;
+    }
+    
+    .location > div{
+    	display: inline-block;
+    	width: 90%;
+    	height:30vh;
+    }
+    
+    .location > h1{
+    	margin: 0;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 5.5vw;
+        margin-bottom: 5%;
+    }
+    
+    .location-info-flex{
+    	display: flex;
+        flex-direction: row; /*수평 정렬*/
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 5%;
+    }
+    
+    .location-info-flex > div{
+        text-align: left;
+    }
+    
+    .location-info-flex > div > h2{
+        margin: 0;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 4.5vw;
+        margin-bottom: 5%;
+    }
+    
+    .location-info-flex > div > p{
+        margin: 0;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 1.1vw;
+        margin-bottom: 5%;
+    }
+    
+    .location-info-flex > div > a > i{
+        font-size: 10vw;
+        line-height: 10rem;
+        color: black;
+    }
+    
+    .location-subInfo{
+    	display: inline-block;
+    	text-align: left;
+    	line-height: 2.5;
+    	padding: 0 5%;
+    }
+    .location-subInfo > h6{
+    	margin: 0;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 3vw;
+        margin-bottom:2%;
+    }
+    .location-subInfo > p{
+    	margin: 0;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 2vw;
+        margin-bottom:2%;
+    }
+
+    .money-gift{
+        text-align: center;
+        background-color: #FFFBF5;
+        padding: 50px 0;
+    }
+    .money-gift > h1{
+        margin: 0;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 5.5vw;
+        margin-bottom: 5%;
+    }
+    .money-gift > p{
+        margin: 0;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 4.5vw;
+        margin-bottom: 5%;
+    }
+    .money-gift > div{
+        display: inline-block;
+        width:200px; height:50px;
+        margin-bottom: 2%;
+    }
+    .kakao-transfer{
+        background-image: url(../../../resources/images/kakaoPay-gift.png);
+        background-size: contain;
+        cursor: pointer;
+    }
+    .account-number{
+        background-image: url(../../../resources/images/account-number.png);
+        background-size: contain;
+        cursor: pointer;
+    }
+    .guest-book{
+        text-align: center;
+        background-color: #FFFBF5;
+        padding: 50px 0;
+    }
+    .guest-book > h1{
+        margin: 0;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 5.5vw;
+        margin-bottom: 5%;
+    }
+    .guest-book-databox{
+        width: 80%;
+        padding: 5%;
+        border: 1px solid black;
+        display: inline-block;
+        border-radius: 0.5rem;
+    }
+
+    .gueust-book-row{
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .guest-book-row > *{
+        font-family: 'Noto Sans KR', sans-serif;
+        display: inline-block;
+        font-size: 5vw;
+    }
+
+    input[type="text"], input[type="email"], input[type="password"], textarea {
+    border: none;
+    width: 70%;
+    background-color: white; /* 배경 색상 설정 */
+    padding: 10px; /* 안쪽 여백 설정 */
+    border-radius: 0.5rem;
+    margin-bottom: 5%;
+    }
+
+    /* input box에 마우스 포커스가 갈 때 적용되는 스타일 */
+    input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus {
+    box-shadow: 0 0 5px #FFFF00; /* 포커스 시 그림자 효과 추가 */
+    }
+
+    .guest-book-row > input[type="button"]{
+        width: 70%;
+        font-size: 4vw;
+        border: none;
+        border-radius: 0.5rem;
+        background-color: #58AAFF;
+        color: #ffffff;
+        line-height: 2.5rem;
+    	cursor: pointer;
+    }
+    .guest-text{
+        margin-top: 5%;
+        width: 80%;
+        border: 1px solid black;
+        border-radius: 0.5rem;
+        display: inline-block;
+        padding: 3% 5%;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 4vw;
+    }
+    .guest-text-row{
+        display: flex;
+        justify-content: space-between;
+        padding: 2%;
+    }
+    .share-link{
+        width: 100%;
+        display: flex;
+        border: 1px solid black;
+        background-color: #FFFBF5;
+    }
+    .share-link > a{
+        width: 33.3%;
+        text-decoration: none;
+        color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .share-link > :nth-child(2){
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+    }
+
+    .share-link > a > i{
+        font-size: 10vw;
+        line-height: 30vw;
+    }
+    .share-link > a > img{
+        width: 10vw;
+        line-height: 30vw;
+    }
+    .logo{
+        background-color: #FFFBF5;
+    }
+    .logo > a {
+    font-size: 30px;
+    font-weight:600;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    color: #58AAFF;
+    line-height: 4rem;
+    }
+    .host-name > h1{
+    	padding-top:25%;
+    	margin: 0;
+        font-family: 'Gamja Flower', sans-serif;
+        font-size: 15.5vw;
+    }
+    .title > h1{
+    	padding-top:10%;
+    	margin: 0;
+        font-family: 'Gamja Flower', sans-serif;
+        font-size: 8vw;
+    }
+    
+	.kakaoPay-image-box {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 200px;
+			height: 200px;
+			border: 1px solid black;
+			overflow: hidden;
+	}
+	.kakaoPay-image-box img {
+			object-fit: cover;
+			width: 100%;
+			height: 100%;
+	}

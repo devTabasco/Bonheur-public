@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kakaoMap</title>
+    <link rel="stylesheet" type="text/css" id="changeStyle" href="resources/css/styleGuide.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=37df7ab613b03d28b159b77089a64a01&libraries=services"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+</head>
+<body>
+
+		<div style="display: flex; margin-bottom: 20px">
+			<input type="text" id="keyword" class="search-input input-box-lg" style="margin-right:15px" >
+			<button type="button" class="btn btn-primary serch-btn kor" onclick="postCode();">검색하기</button>
+		</div>
+			<div id="map" style="width:600px;height:400px;position:relative;overflow:hidden;"></div>
+
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+mapOption = {
+    center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+    level: 4 // 지도의 확대 레벨
+};  
+
+//지도를 생성합니다    
+var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+//주소-좌표 변환 객체를 생성합니다
+var geocoder = new kakao.maps.services.Geocoder();
+
+// 우편번호api 팝업창
+function postCode() {
+    new daum.Postcode({
+        oncomplete: function(data) {
+
+            var addr = ''; // 주소 변수
+         	// 사용자가 선택한 주소 값을 인풋란에 채워주기
+            //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+            if (data.userSelectedType) { // 사용자가 도로명 주소를 선택했을 경우
+                addr = data.roadAddress;
+            } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                addr = data.jibunAddress;
+            }
+	 		// 주소 정보를 해당 필드에 넣는다.
+    		document.getElementsByClassName("search-input")[0].value = addr;
+    		//주소로 좌표를 검색합니다
+    		geocoder.addressSearch(addr, function(result, status) {
+
+    		// 정상적으로 검색이 완료됐으면 
+    		 if (status === kakao.maps.services.Status.OK) {
+    			 console.log('test');
+
+    		    var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+    		    // 결과값으로 받은 위치를 마커로 표시합니다
+    		    var marker = new kakao.maps.Marker({
+    		        map: map,
+    		        position: coords
+    		    });
+
+    		    // 인포윈도우로 장소에 대한 설명을 표시합니다
+    		    //var infowindow = new kakao.maps.InfoWindow({
+    		        //content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
+    		    //});
+    		    //infowindow.open(map, marker);
+
+    		    // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+    		    map.setCenter(coords);
+    		} 
+    		});    
+        }
+    }).open();
+}
+</script>
+</body>
+</html>

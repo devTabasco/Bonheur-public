@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="resources/css/createDiv.css" />
+    <link rel="stylesheet" type="text/css" href="resources/css/styleGuide.css" />
+    <script type="text/javascript" src="resources/js/common.js"></script>
+</head>
+<body>
+    <h3>DIV 객체를 동적으로 생성, 삽입, 삭제하는 예제</h3><hr>
+    <!-- a태그를 이용해서 자바스크립트를 호출하기위해서는 javascript: 를 넣어준다 -->
+    <a href="javascript:createBasicInfo()">DIV 생성</a><p></p>
+</body>
+<script>
+    function createBasicInfo(){
+        //function createDiv(objId, className, funcName, innerText, width, isInline)
+        //function createText(type, contents, isInline)
+        //function createInputBox(type, name, value, placeholder, guideNum)
+        // let box = createDiv("","guide-box","","");
+
+        // let row1 = createDiv("","","","");
+
+        // let subTitleBox1 = createDiv("","sub-title-box","","");
+
+        // let subContentsBox1 = createDiv("","sub-contents-box","","");
+                
+        // let title = createText(1,"기본정보",false)
+        // let hr = createHr();
+
+        // let sub1 = createText(2,"주문자명",true);
+        // let sub2 = createText(2,"휴대폰 번호",true);
+        // let sub3 = createText(2,"이메일 주소",true);
+
+        // subTitleBox.appendChild(sub1);
+        // subTitleBox.appendChild(sub2);
+        // subTitleBox.appendChild(sub3);
+
+        // let con1 = createText(3,"고객명",false);
+        // let con2 = createText(3,"010-1234-5678",false);
+        // let con3 = createText(3,"changyong0605@gmail.com",false);
+
+        // subContentsBox.appendChild(con1);
+        // subContentsBox.appendChild(con2);
+        // subContentsBox.appendChild(con3);
+
+        // box.appendChild(title);
+        // box.appendChild(hr);
+        // box.appendChild(subTitleBox);
+        // box.appendChild(subContentsBox);
+
+        // document.body.appendChild(box);
+
+        /*
+        function createInputBox(type, name, value, placeholder, guideNum){
+	const input = document.createElement("input");
+	input.setAttribute("type", type);
+	input.setAttribute("name", name);
+	if(value != "") input.setAttribute("value", value);
+	if(placeholder != "") input.setAttribute("placeholder", placeholder);
+    if(guideNum != ""){
+        if(guideNum == 1){
+            input.setAttribute("class","input-box input-box-sm");
+        }else if(guideNum == 2){
+            input.setAttribute("class","input-box input-box-md");
+        }else if(guideNum == 3){
+            input.setAttribute("class","input-box input-box-lg");
+        }
+    }
+	return input;
+}
+        */
+
+        let input = createInputBox("text","test","","",3);
+        document.body.appendChild(input);
+
+        // invitationUrlData.setAttribute("id","sub-title");
+        // invitationUrlData.setAttribute("class","kor Regular");
+        // invitationUrlData.innerHTML = "https://www.bonheur.com/m";
+        // invitationUrlData.style.display="inline-block";
+
+        // let invitationUrlData2 = document.createElement("input");
+        // invitationUrlData2.setAttribute("class","input-box input-box-sm");
+        // invitationUrlData2.style.display="inline-block";
+
+        // let invitationUrl = document.createElement("p");
+        // invitationUrl.setAttribute("id","sub-title")
+        // invitationUrl.setAttribute("class","kor Bold");
+        // invitationUrl.innerHTML = "초대장 url";
+
+        // let invitationTitle = document.createElement("p");
+        // invitationTitle.setAttribute("id","sub-title")
+        // invitationTitle.setAttribute("class","kor Bold");
+        // invitationTitle.innerHTML = "초대장 제목";
+
+        // let invitationTitleData = document.createElement("input");
+        // invitationTitleData.setAttribute("class","input-box input-box-lg");
+
+        // box.appendChild(title);
+        // box.appendChild(hr);
+        // box.appendChild(subTitleBox);
+        // box.appendChild(subContentsBox);
+        // subTitleBox.appendChild(invitationUrl);
+        // subTitleBox.appendChild(invitationTitle);
+        // subContentsBox.appendChild(invitationUrlData);
+        // subContentsBox.appendChild(invitationUrlData2);
+        // subContentsBox.appendChild(invitationTitleData);
+
+        // document.body.appendChild(box);
+        
+    }
+</script>
+</html>
