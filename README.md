@@ -15,4 +15,5 @@
 - NAVER 간편 로그인(OAUTH2) 활용
 - AWS SDK를 활용한 이미지 파일 처리
 
-<img width="80%" src="https://bonheur-storage.s3.ap-northeast-2.amazonaws.com/resources/video/bonheur_demo_1080.mp4"/>
+3. 프로젝트 영상
+https://bonheur-storage.s3.ap-northeast-2.amazonaws.com/resources/video/bonheur_demo_1080.mp4
